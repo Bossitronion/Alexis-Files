@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alexis Files</title>
+
+<style>
+div {text-align: center;}
+* { box-sizing: border-box; font-family: system-ui, Arial, sans-serif; }
+body { margin: 0; background: #f4f4f4; scroll-behavior: smooth; }
+
+.app {
+  display: grid;
+  grid-template-columns: 220px 1fr 200px;
+  gap: 16px;
+  padding: 16px;
+}
+
+.left, .right {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel {
+  background: #9a9a9a;
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.panel h3 { margin: 0 0 8px; text-align: center; }
+
+.btn {
+  background: #dcdcdc;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(0.95); }
+
+.main {
+  background: #9a9a9a;
+  border-radius: 28px;
+  padding: 24px;
+  min-height: 200vh;
+}
+
+.content-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+section { margin-bottom: 64px; }
+section h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .body {
+  overflow-y: auto;
+  margin-top: 8px;
+}
+
+#gameCanvas {
+  background: #222;
+  border: 2px solid white;
+  display: block;
+  margin: 0 auto;
+}
+.scoreboard {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="left">
+    <div class="panel">
+      <h3>Credits</h3>
+      <button id="openCredits" class="btn">Credits</button>
+    </div>
+
+    <div class="panel">
+      <h3>Game</h3>
+      <button id="openGame" class="btn">Sample Game</button>
+    </div>
+
+    <div class="panel">
+      <h3>Contents</h3>
+      <div class="content-nav">
+        <button class="btn nav-btn" data-target="html">HTML</button>
+         <button class="btn nav-btn" data-target="css">CSS</button>
+        <button class="btn nav-btn" data-target="js">JavaScript</button>
+        <button class="btn nav-btn" data-target="oop">OOP</button>
+        <button class="btn nav-btn" data-target="prog">Programming</button>
+        <button class="btn nav-btn" data-target="extra">Extra</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main" id="mainContent">
+    <section id="html">
+      <h2>HTML</h2>
+      <p>HTML is the skeleton of a website.</p>
+    </section>
+	
+   <section id="css">
+      <h2>CSS</h2>
+      <p>CSS is the painter of the website.</p>
+    </section>
+
+    <section id="js">
+      <h2>JavaScript</h2>
+      <p>JavaScript adds interaction and logic.</p>
+    </section>
+
+    <section id="oop">
+      <h2>OOP</h2>
+      <p>Object-Oriented Programming uses classes and objects.</p>
+    </section>
+
+    <section id="prog">
+      <h2>Programming</h2>
+      <p>Programming is structured problem solving.</p>
+    </section>
+
+    <section id="extra">
+      <h2>Extra</h2>
+      <p>Bonus content.</p>
+    </section>
+  </div>
+
+  <div class="right">
+    <div class="panel">
+      <h3>Links</h3>
+  <a href="https://www.youtube.com/watch?v=EerdGm-ehJQ&pp=ygUWamF2YXNjcmlwdCBmdWxsIGNvdXJzZQ%3D%3D">YouTube</a>
+  <br>
+  <a href="https://developer.mozilla.org/">MDN Docs</a>
+  <br>
+  <a href="https://www.w3schools.com/">W3Schools</a>
+  <br>
+  <a href="https://github.com/">GitHub</a>
+  
+ </div>
+   <div class="right">
+    <div class="panel">
+      <h3>Wild Adventures</h3>
+ </div>
+
+</div>
+
+<div class="modal-backdrop" id="creditsModal">
+  <div class="modal">
+    <header>
+      <h3>Credits</h3>
+      <button class="btn close">X</button>
+    </header>
+    <div class="body">
+      <p><strong>Project:</strong> Alexis Files</p>
+      <p><strong>Author:</strong> Araza, Kurt Kelvin J.</p>
+      <p><strong>Tech:</strong> Abrogar, Cristan Kyle C. Castillo, Matthew Arris G. Silverio, Lexian Jonreigh F. </p>
+	  <p><strong>Animator:</strong> Estayo, Moel B. </p>
+	  <p><strong>Showcaser:</strong> Lipio, Alexis Emmanuel E. </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="gameModal">
+  <div class="modal">
+    <header>
+      <h3>OOP Game</h3>
+      <button class="btn close">X</button>
+    </header>
+    <div class="body">
+      <div class="scoreboard">Score: <span id="score">0</span></div>
+      <canvas id="gameCanvas" width="600" height="400"></canvas>
+      <p style="color:white;text-align:center;">Use A/D to move, W to jump, SPACE to attack!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll(".nav-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById(btn.dataset.target)
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+
+const creditsModal = document.getElementById("creditsModal");
+const gameModal = document.getElementById("gameModal");
+
+document.getElementById("openCredits").onclick = () =>
+  creditsModal.style.display = "flex";
+
+document.getElementById("openGame").onclick = () => {
+  gameModal.style.display = "flex";
+  startGame();
+};
+
+document.querySelectorAll(".close").forEach(btn => {
+  btn.onclick = () => {
+    creditsModal.style.display = "none";
+    gameModal.style.display = "none";
+  };
+});
+
+function startGame() {
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+  const scoreDisplay = document.getElementById("score");
+  let score = 0;
+
+  class Player {
+    constructor(x, y) {
+      this.x = x; this.y = y; this.width = 30; this.height = 30;
+      this.velocityX = 0; this.velocityY = 0;
+      this.acceleration = 0.6; this.friction = 0.85; this.maxSpeed = 8;
+      this.jumpPower = 15; this.gravity = 0.8; this.onGround = false;
+      this.attacking = false; this.attackTime = 0;
+    }
+    update(input) {
+      if (input.left) this.velocityX -= this.acceleration;
+      if (input.right) this.velocityX += this.acceleration;
+      this.velocityX = Math.max(-this.maxSpeed, Math.min(this.maxSpeed, this.velocityX));
+      this.velocityX *= this.friction;
+      this.x += this.velocityX;
+
+      this.velocityY += this.gravity;
+      this.y += this.velocityY;
+
+      if (this.y + this.height >= canvas.height) {
+        this.y = canvas.height - this.height;
+        this.velocityY = 0;
+        this.onGround = true;
+      } else this.onGround = false;
+
+      if (input.jump && this.onGround) {
+        this.velocityY = -this.jumpPower;
+        this.onGround = false;
+      }
+
+      if (this.x < 0) this.x = 0;
+      if (this.x + this.width > canvas.width) this.x = canvas.width - this.width;
+
+      if (this.attacking) {
+        this.attackTime++;
+        if (this.attackTime > 10) { 
+          this.attacking = false; 
+          this.attackTime = 0; 
+        }
+      }
+    }
+    draw(ctx) {
+      ctx.fillStyle = this.attacking ? "#ffff00" : "#4da6ff"; // yellow when attacking
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+
+  class Enemy {
+    constructor(x, y, range = 100, speed = 2) {
+      this.x = x; this.y = y; this.width = 30; this.height = 30;
+      this.range = range; this.startX = x; this.speed = speed; this.direction = 1;
+      this.alive = true;
+    }
+    update() {
+      if (!this.alive) return;
+      this.x += this.speed * this.direction;
+      if (this.x > this.startX + this.range || this.x < this.startX) this.direction *= -1;
+    }
+    draw(ctx) {
+      if (!this.alive) return;
+      ctx.fillStyle = "#ff4d4d";
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+
+  class InputHandler {
+    constructor() {
+      this.left = false; this.right = false; this.jump = false; this.attack = false;
+
+      window.addEventListener("keydown", e => {
+        if (e.key === "a") this.left = true;
+        if (e.key === "d") this.right = true;
+        if (e.key === "w") this.jump = true;
+        if (e.key === " ") this.attack = true;
+      });
+      window.addEventListener("keyup", e => {
+        if (e.key === "a") this.left = false;
+        if (e.key === "d") this.right = false;
+        if (e.key === "w") this.jump = false;
+        if (e.key === " ") this.attack = false;
+      });
+    }
+  }
+
+  class Game {
+    constructor() {
+      this.input = new InputHandler();
+      this.player = new Player(100, 400);
+      this.enemies = [ new Enemy(200, 370, 100, 2), new Enemy(400, 370, 150, 4), new Enemy(100, 300, 500, 6), new Enemy(10, 300, 500, 7) ];
+      this.loop();
+    }
+
+    loop() {
+      this.update();
+      this.draw();
+      requestAnimationFrame(() => this.loop());
+    }
+
+    update() {
+      this.player.update(this.input);
+      this.enemies.forEach(enemy => enemy.update());
+
+      this.enemies.forEach(enemy => {
+        if (!enemy.alive) return;
+
+        const hit = this.player.x < enemy.x + enemy.width &&
+                    this.player.x + this.player.width > enemy.x &&
+                    this.player.y < enemy.y + enemy.height &&
+                    this.player.height + this.player.y > enemy.y;
+
+        if (hit) {
+          if (this.player.attacking || this.input.attack) {
+            enemy.alive = false;
+            score += 10;
+            scoreDisplay.textContent = score;
+          } else {
+            this.player.x = 100; this.player.y = 300;
+            this.player.velocityX = 0; this.player.velocityY = 0;
+          }
+        }
+      });
+
+      if (this.input.attack && !this.player.attacking) {
+        this.player.attacking = true;
+      }
+    }
+
+    draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      this.player.draw(ctx);
+      this.enemies.forEach(enemy => enemy.draw(ctx));
+    }
+  }
+
+  new Game();
+}
+</script>
+</body>
+</html>
