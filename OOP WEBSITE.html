@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Group 1: OOP</title>
+
+<style>
+div {text-align: center;}
+* { box-sizing: border-box; font-family: system-ui, Arial, sans-serif; }
+body { margin: 0; background: #141414; scroll-behavior: smooth; }
+
+.app {
+  display: grid;
+  grid-template-columns: 220px 1fr 200px;
+  gap: 16px;
+  padding: 16px;
+}
+
+.left, .right {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel {
+  background: #9a9a9a;
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.panel h3 { margin: 0 0 8px; text-align: center; }
+
+.btn {
+  background: #dcdcdc;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(0.95); }
+
+.main {
+  background: #9a9a9a;
+  border-radius: 28px;
+  padding: 24px;
+  min-height: 200vh;
+}
+
+.content-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+section { margin-bottom: 64px; }
+section h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 4px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  width: 80%;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal .body {
+  overflow-y: auto;
+  margin-top: 8px;
+}
+
+#gameCanvas {
+  background: #222;
+  border: 2px solid white;
+  display: block;
+  margin: 0 auto;
+}
+.scoreboard {
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+body {
+	background-color: #141414;
+}
+h1 {
+	font-family: "Times New Roman", Times, serif;
+}
+p {
+	font-family: "Times New Roman", Times, serif;
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="left">
+    <div class="panel">
+      <h3>Credits</h3>
+      <button id="openCredits" class="btn">Credits</button>
+    </div>
+
+    <div class="panel">
+      <h3>Game</h3>
+      <button id="openGame" class="btn">Sample Game</button>
+    </div>
+
+    <div class="panel">
+      <h3>Contents</h3>
+      <div class="content-nav">
+        <button class="btn nav-btn" data-target="html">HTML</button>
+         <button class="btn nav-btn" data-target="css">CSS</button>
+        <button class="btn nav-btn" data-target="js">JavaScript</button>
+        <button class="btn nav-btn" data-target="oop">OOP</button>
+        <button class="btn nav-btn" data-target="prog">Programming</button>
+        <button class="btn nav-btn" data-target="extra">Extra</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="main" id="mainContent">
+    <section id="html">
+      <h2>HTML (Hypertext Markup Language)</h2>
+      <p>Hypertext Markup Language (HTML) is the standard markup language[a] for
+		documents designed to be displayed in a web browser. It defines the content and structure of web content.
+		It is often assisted by technologies such as
+		Cascading Style Sheets (CSS) and scripting languages such as JavaScript.</p>
+		<p>Web browsers receive HTML documents from a web server or from local storage and render the documents into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for its appearance.
+HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects such as interactive forms may be embedded into the rendered page. HTML provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes, and other items. HTML elements are delineated by tags, written using angle brackets. Tags such as <Strong><.img.></strong> and <strong><.input.></strong> directly introduce content into the page. Other tags such as <strong><.p.> and <./p.></strong> surround and provide information about document text and may include sub-element tags. Browsers do not display the HTML tags, but use them to interpret the content of the page.</p>
+
+<p>HTML can embed programs written in a scripting language such as JavaScript, which affects the behavior and content of web pages. The inclusion of CSS defines the look and layout of content. The World Wide Web Consortium (W3C), former maintainer of the HTML and current maintainer of the CSS standards, has encouraged the use of CSS over explicit presentational HTML since 1997. A form of HTML, known as HTML5, is used to display video and audio, primarily using the <strong><.canvas></strong> element, together with JavaScript.</p>
+		
+    </section>
+	
+   <section id="css">
+      <h2>CSS (Cascading Style Sheets)</h2>
+      <p>Cascading Style Sheets (CSS) is a style sheet language used for specifying the presentation and styling of a document written in a markup language,
+		  such as HTML or XML (including XML dialects such as SVG, MathML, or XHTML).
+		  CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.</p>
+		  <p>CSS is designed to enable the separation of content and presentation, including layout, colors, and fonts. This separation can improve content accessibility, since the content can be written without concern for its presentation; provide more flexibility and control in the specification of presentation characteristics; enable multiple web pages to share formatting by specifying the relevant CSS in a separate .css file, which reduces complexity and repetition in the structural content; and enable the .css file to be cached to improve the page load speed between the pages that share the file and its formatting.
+
+Separation of formatting and content also makes it feasible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (via speech-based browser or screen reader), and on Braille-based tactile devices. CSS also has rules for alternative formatting if the content is accessed on a mobile device.
+
+<p>The name cascading comes from the specified priority scheme to determine which declaration applies if more than one declaration of a property match a particular element. This cascading priority scheme is predictable.</p>
+
+<p>The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.
+
+In addition to HTML, other markup languages support the use of CSS including XHTML, plain XML, SVG, and XUL. CSS is also used in the GTK widget toolkit.</p>
+    </section>
+
+    <section id="js">
+      <h2>JavaScript</h2>
+      <p>avaScript (JS) is a programming language and core technology of the Web, alongside HTML and CSS. It was created by Brendan Eich in 1995.
+			As of 2025, the overwhelming majority of websites (98.9%) uses JavaScript for client side webpage behavior.</p>
+			<p>Web browsers have a dedicated JavaScript engine that executes the client code. These engines are also utilized in some servers and a variety of apps. The most popular runtime system for non-browser usage is Node.js.</p>
+
+<p>JavaScript is a high-level, often just-in-time–compiled language that conforms to the ECMAScript standard. It has dynamic typing, prototype-based object-orientation, and first-class functions. It is multi-paradigm, supporting event-driven, functional, and imperative programming styles. It has application programming interfaces (APIs) for working with text, dates, regular expressions, standard data structures, and the Document Object Model (DOM).
+
+<p>The ECMAScript standard does not include any input/output (I/O), such as networking, storage, or graphics facilities. In practice, the web browser or other runtime system provides JavaScript APIs for I/O.
+
+Although Java and JavaScript are similar in name and syntax, the two languages are distinct and differ greatly in design.</P>
+    </section>
+
+    <section id="oop">
+      <h2>OOP (Object-Oriented Programming)</h2>
+      <p>Object-oriented programming (OOP) is a programming paradigm based on objects – software entities that encapsulate data and function(s). An OOP computer program consists of objects that interact with one another. An OOP language is one that provides object-oriented programming features, but as the set of features that contribute to OOP is contested, classifying a language as OOP – and the degree to which it supports OOP – is debatable. As paradigms are not mutually exclusive, a language can be multi-paradigm (i.e. categorized as more than only OOP).</p>
+    </section>
+
+    <section id="prog">
+      <h2>Computer Programming</h2>
+      <p>Computer programming or coding is the composition of sequences of instructions, called programs, that computers can follow to perform tasks. It involves designing and implementing algorithms, step-by-step specifications of procedures, by writing code in one or more programming languages. Programmers typically use high-level programming languages that are more easily intelligible to humans than machine code, which is directly executed by the central processing unit. Proficient programming usually requires expertise in several different subjects, including knowledge of the application domain, details of programming languages and generic code libraries, specialized algorithms, and formal logic.</p>
+<br>
+<p>Auxiliary tasks accompanying and related to programming include analyzing requirements, testing, debugging (investigating and fixing problems), implementation of build systems, and management of derived artifacts, such as programs' machine code. While these are sometimes considered programming, often the term software development is used for this larger overall process – with the terms programming, implementation, and coding reserved for the writing and editing of code per se. Sometimes software development is known as software engineering, especially when it employs formal methods or follows an engineering design process.</p>
+    </section>
+
+    <section id="extra">
+      <h2>Extra</h2>
+      <p>HTML, CSS, JavaScript, OOP, and computer programming all work together as fundamental components of modern software and web development.
+
+HTML provides the structure and content of a webpage. It defines what appears on the page, such as text, images, links, and forms.
+CSS controls the presentation and design, determining how the structured content looks through layout, colors, fonts, and responsiveness.
+JavaScript adds interactivity and behavior, allowing websites to respond to user actions, update content dynamically, and communicate with servers.</p>
+
+<p>Beyond web technologies, Object-Oriented Programming (OOP) is a programming paradigm that organizes code using objects that contain data and behavior. It improves structure, reusability, and scalability in software development.
+
+All of these exist under the broader concept of computer programming, which is the process of designing and writing instructions that computers execute to solve problems or perform tasks. Programming involves not only writing code but also planning, testing, debugging, and maintaining software systems.</P>
+
+In summary:
+
+<li>HTML builds the structure</li>
+
+<li>CSS designs the appearance</li>
+
+<li>JavaScript adds functionality</li>
+
+<li>OOP organizes logic efficiently</li>
+
+<li>Programming ties everything together into complete, working systems</li>
+
+<p>Together, these technologies form the backbone of modern web development and software engineering.</p>
+    </section>
+  </div>
+
+  <div class="right">
+    <div class="panel">
+      <h3>Links</h3>
+  <a href="https://www.youtube.com/watch?v=EerdGm-ehJQ&pp=ygUWamF2YXNjcmlwdCBmdWxsIGNvdXJzZQ%3D%3D">YouTube</a>
+  <br>
+  <a href="https://developer.mozilla.org/">MDN Docs</a>
+  <br>
+  <a href="https://www.w3schools.com/">W3Schools</a>
+  <br>
+  <a href="https://github.com/Bossitronion/Alexis-Files">GitHub</a>
+  
+ </div>
+   <div class="right">
+    <div class="panel">
+	  <a href="file:///C:/Users/Administrator/Desktop/Group%201/Animation%20Game.html" target="_blank">
+<h3>Wild Adventures<h3>
+<img src="image.png" alt="Animation game" width="177" height="250">
+</a>
+ </div>
+
+</div>
+
+<div class="modal-backdrop" id="creditsModal">
+  <div class="modal">
+    <header>
+      <h3>Credits</h3>
+      <button class="btn close">X</button>
+    </header>
+    <div class="body">
+      <p><strong>Project:</strong> Alexis Files</p>
+      <p><strong>Author:</strong> Araza, Kurt Kelvin J.</p>
+      <p><strong>Tech:</strong> Abrogar, Cristan Kyle C. Castillo, Matthew Arris G. Silverio, Lexian Jonreigh F. </p>
+	  <p><strong>Animator:</strong> Estayo, Moel B. </p>
+	  <p><strong>Showcaser:</strong> Lipio, Alexis Emmanuel E. </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="gameModal">
+  <div class="modal">
+    <header>
+      <h3>OOP Game</h3>
+      <button class="btn close">X</button>
+    </header>
+    <div class="body">
+      <div class="scoreboard">Score: <span id="score">0</span></div>
+      <canvas id="gameCanvas" width="600" height="400"></canvas>
+      <p style="color:white;text-align:center;">Use A/D to move, W to jump, SPACE to attack!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll(".nav-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById(btn.dataset.target)
+      .scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+
+const creditsModal = document.getElementById("creditsModal");
+const gameModal = document.getElementById("gameModal");
+
+document.getElementById("openCredits").onclick = () =>
+  creditsModal.style.display = "flex";
+
+document.getElementById("openGame").onclick = () => {
+  gameModal.style.display = "flex";
+  startGame();
+};
+
+document.querySelectorAll(".close").forEach(btn => {
+  btn.onclick = () => {
+    creditsModal.style.display = "none";
+    gameModal.style.display = "none";
+  };
+});
+
+function startGame() {
+  const canvas = document.getElementById("gameCanvas");
+  const ctx = canvas.getContext("2d");
+  const scoreDisplay = document.getElementById("score");
+  let score = 0;
+
+  class Player {
+    constructor(x, y) {
+      this.x = x; this.y = y; this.width = 30; this.height = 30;
+      this.velocityX = 0; this.velocityY = 0;
+      this.acceleration = 0.6; this.friction = 0.85; this.maxSpeed = 8;
+      this.jumpPower = 15; this.gravity = 0.8; this.onGround = false;
+      this.attacking = false; this.attackTime = 0;
+    }
+    update(input) {
+      if (input.left) this.velocityX -= this.acceleration;
+      if (input.right) this.velocityX += this.acceleration;
+      this.velocityX = Math.max(-this.maxSpeed, Math.min(this.maxSpeed, this.velocityX));
+      this.velocityX *= this.friction;
+      this.x += this.velocityX;
+
+      this.velocityY += this.gravity;
+      this.y += this.velocityY;
+
+      if (this.y + this.height >= canvas.height) {
+        this.y = canvas.height - this.height;
+        this.velocityY = 0;
+        this.onGround = true;
+      } else this.onGround = false;
+
+      if (input.jump && this.onGround) {
+        this.velocityY = -this.jumpPower;
+        this.onGround = false;
+      }
+
+      if (this.x < 0) this.x = 0;
+      if (this.x + this.width > canvas.width) this.x = canvas.width - this.width;
+
+      if (this.attacking) {
+        this.attackTime++;
+        if (this.attackTime > 10) { 
+          this.attacking = false; 
+          this.attackTime = 0; 
+        }
+      }
+    }
+    draw(ctx) {
+      ctx.fillStyle = this.attacking ? "#ffff00" : "#4da6ff"; // yellow when attacking
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+
+  class Enemy {
+    constructor(x, y, range = 100, speed = 2) {
+      this.x = x; this.y = y; this.width = 30; this.height = 30;
+      this.range = range; this.startX = x; this.speed = speed; this.direction = 1;
+      this.alive = true;
+    }
+    update() {
+      if (!this.alive) return;
+      this.x += this.speed * this.direction;
+      if (this.x > this.startX + this.range || this.x < this.startX) this.direction *= -1;
+    }
+    draw(ctx) {
+      if (!this.alive) return;
+      ctx.fillStyle = "#ff4d4d";
+      ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+  }
+
+  class InputHandler {
+    constructor() {
+      this.left = false; this.right = false; this.jump = false; this.attack = false;
+
+      window.addEventListener("keydown", e => {
+        if (e.key === "a") this.left = true;
+        if (e.key === "d") this.right = true;
+        if (e.key === "w") this.jump = true;
+        if (e.key === " ") this.attack = true;
+      });
+      window.addEventListener("keyup", e => {
+        if (e.key === "a") this.left = false;
+        if (e.key === "d") this.right = false;
+        if (e.key === "w") this.jump = false;
+        if (e.key === " ") this.attack = false;
+      });
+    }
+  }
+
+  class Game {
+    constructor() {
+      this.input = new InputHandler();
+      this.player = new Player(100, 400);
+      this.enemies = [ new Enemy(200, 370, 100, 2), new Enemy(400, 370, 150, 4), new Enemy(100, 300, 500, 6), new Enemy(10, 300, 500, 7) ];
+      this.loop();
+    }
+
+    loop() {
+      this.update();
+      this.draw();
+      requestAnimationFrame(() => this.loop());
+    }
+
+    update() {
+      this.player.update(this.input);
+      this.enemies.forEach(enemy => enemy.update());
+
+      this.enemies.forEach(enemy => {
+        if (!enemy.alive) return;
+
+        const hit = this.player.x < enemy.x + enemy.width &&
+                    this.player.x + this.player.width > enemy.x &&
+                    this.player.y < enemy.y + enemy.height &&
+                    this.player.height + this.player.y > enemy.y;
+
+        if (hit) {
+          if (this.player.attacking || this.input.attack) {
+            enemy.alive = false;
+            score += 10;
+            scoreDisplay.textContent = score;
+          } else {
+            this.player.x = 100; this.player.y = 300;
+            this.player.velocityX = 0; this.player.velocityY = 0;
+          }
+        }
+      });
+
+      if (this.input.attack && !this.player.attacking) {
+        this.player.attacking = true;
+      }
+    }
+
+    draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      this.player.draw(ctx);
+      this.enemies.forEach(enemy => enemy.draw(ctx));
+    }
+  }
+
+  new Game();
+}
+</script>
+</body>
+</html>
